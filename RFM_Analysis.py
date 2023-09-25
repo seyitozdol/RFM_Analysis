@@ -75,7 +75,7 @@ def sum_df(dataframe, head=6):
     print("~~~~~~~~~~|-NUMERIC COLUMNS-|~~~~~~~~~~ ")
     print([i for i in dataframe.columns if dataframe[i].dtype != "O"])
     print("~~~~~~~~~~|-MISSING VALUE ANALYSIS-|~~~~~~~~~~ ")
-    print(analyze_missing_values(df))
+    print(analyze_missing_values(dataframe))
 
 sum_df(df)
 
@@ -98,18 +98,6 @@ def calculate_rfm_values(dataframe, master_id_col, last_order_date_col, total_or
 # Task 2: Calculate the RF Score
 #*************************************
 
-
-def calculate_rfm_values(dataframe, master_id_col, last_order_date_col, total_order_col, total_price_col):
-    today_date = dataframe[last_order_date_col].max() + dt.timedelta(days=2)
-
-    rfm = dataframe.groupby(master_id_col).agg({
-        last_order_date_col: lambda date: (today_date - date.max()).days,
-        total_order_col: lambda x: x.sum(),
-        total_price_col: lambda x: x.sum()
-    }).reset_index()
-
-    rfm.columns = ['master_id', 'recency', 'frequency', 'monetary']
-    return rfm
 
 
 def assign_rfm_scores(rfm):
