@@ -1,4 +1,4 @@
-## RFM Analysis
+## RFM Analysis of Online Shoe Store 
  An RFM analysis project used to segment customers of an online shoe store and determine marketing strategies based on these segments
 
 ![image](https://mir-s3-cdn-cf.behance.net/project_modules/1400/679b9121672815.563062a9a20ab.JPG)
